@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MovieMania Player</title>
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/HackerTutoriales-SeguridadInformatica/ReproductorGooglePhotos@main/start/icono.ico">
+  <script src="https://cdn.jsdelivr.net/gh/HackerTutoriales-SeguridadInformatica/ReproductorGooglePhotos@main/github-paths.js"></script>
+  <link href="https://unpkg.com/video.js@7/dist/video-js.min.css" rel="stylesheet">
+</head>
+<body>
+  <video id="example-video" width="560" height="400" class="video-js vjs-default-skin" controls preload="auto">
+    <source src="http://23.237.122.154:2999/live/Bud$Tv2801/Web$$20/465.m3u8" type="application/x-mpegURL">
+  </video>
+
+  <script src="https://unpkg.com/video.js@7/dist/video.min.js"></script>
+  <script>
+    window.player = videojs('example-video');
+  </script>
+</body>
+</html>
