@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Movie Mania HD</title>
+		<link rel="icon" href="icono.ico" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+		
+		<script type="text/javascript" src="java/Player.js"></script>
+		
+		<!-- Setup EVP -->
+		<script type="text/javascript">
+			FWDEVPUtils.onReady(function(){
+
+				FWDEVPlayer.videoStartBehaviour = "pause";
+				
+				var player1 = new FWDEVPlayer({		
+					//main settings
+					instanceName:"player1",
+					parentId:"myDiv",
+					mainFolderPath:"content",
+					skinPath:"minimal_skin_dark",
+					initializeOnlyWhenVisible:"no",
+					displayType:"FullScreen",
+					autoScale:"yes",
+					fillEntireVideoScreen:"no",
+					openDownloadLinkOnMobile:"no",
+					useHEXColorsForSkin:"no",
+					normalHEXButtonsColor:"#FF0000",
+					selectedHEXButtonsColor:"#000000",
+					privateVideoPassword:"",
+					startAtTime:"",
+					stopAtTime:"",
+					// Índices de fuente comienzan en 0. m22 será la fuente inicial.
+					startAtVideoSource:0,
+					videoSource:[
+
+					
+						{source:"https://lh3.googleusercontent.com/oQDy9LBw7Obydz-8x-8iqjfY4WobAETDlYkQAPZxPVMQ6q1yOzhLmFlZDdaIkJORrcWCx73VlFMWBNY1Gz4i1DNFX6pUrRYo2Nv6nYfLBXTkv_lXrKEMDHCYi342wA00dM5QKOZSPw=m22", label:"720p"},
+
+
+						{source:"https://lh3.googleusercontent.com/oQDy9LBw7Obydz-8x-8iqjfY4WobAETDlYkQAPZxPVMQ6q1yOzhLmFlZDdaIkJORrcWCx73VlFMWBNY1Gz4i1DNFX6pUrRYo2Nv6nYfLBXTkv_lXrKEMDHCYi342wA00dM5QKOZSPw=m37", label:"1080p"}
+					],
+					posterPath:"https://image.tmdb.org/t/p/original/sK707RANdnKSRmLm4FfCTRjZunR.jpg",
+					showErrorInfo:"yes",
+					fillEntireScreenWithPoster:"yes",
+					rightClickContextMenu:"developer",
+					disableDoubleClickFullscreen:"no",
+					useChromeless:"no",
+					showPreloader:"yes",
+					addKeyboardSupport:"yes",
+					autoPlay:"no",
+					loop:"no",
+					scrubAtTimeAtFirstPlay:"00:00:00",
+					maxWidth:600,
+					maxHeight:380,
+					volume:.9,
+					greenScreenTolerance:200,
+					backgroundColor:"#000000",
+					posterBackgroundColor:"#000000",
+					//logo settings
+					showLogo:"yes",
+					hideLogoWithController:"yes",
+					logoPosition:"topLeft",
+					logoLink:"",
+					logoPath:"",
+					logoMargins:5,
+					//controller settings
+					showController:"yes",
+					showControllerWhenVideoIsStopped:"yes",
+					showRewindButton:"yes",
+					showVolumeScrubber:"yes",
+					showVolumeButton:"yes",
+					showTime:"yes",
+					showQualityButton:"yes",
+					showSubtitleButton:"no",
+					showShareButton:"no",
+					showEmbedButton:"no",
+					showDownloadButton:"yes",
+					showFullScreenButton:"yes",
+					repeatBackground:"yes",
+					controllerHeight:41,
+					controllerHideDelay:3,
+					startSpaceBetweenButtons:7,
+					spaceBetweenButtons:9,
+					mainScrubberOffestTop:14,
+					scrubbersOffsetWidth:4,
+					timeOffsetLeftWidth:5,
+					timeOffsetRightWidth:3,
+					volumeScrubberWidth:80,
+					volumeScrubberOffsetRightWidth:0,
+					timeColor:"#888888",
+					youtubeQualityButtonNormalColor:"#888888",
+					youtubeQualityButtonSelectedColor:"#FFFFFF",
+					//cuepoints
+					executeCuepointsOnlyOnce:"no",
+					//annotations
+					annotiationsListId:"none",
+					showAnnotationsPositionTool:"no",
+					
+					//audio visualizer
+					audioVisualizerLinesColor:"#0099FF",
+					audioVisualizerCircleColor:"#FFFFFF",
+					//advertisement on pause window
+					aopwTitle:"Advertisement",
+					aopwSource:"",
+					aopwWidth:400,
+					aopwHeight:240,
+					aopwBorderSize:6,
+					aopwTitleColor:"#FFFFFF",
+					//playback rate / speed
+					showPlaybackRateButton:"yes",
+					defaultPlaybackRate:"1", //0.25, 0.5, 1, 1.25, 1.5, 2
+					//embed window
+					embedWindowCloseButtonMargins:0,
+					borderColor:"#333333",
+					mainLabelsColor:"#FFFFFF",
+					secondaryLabelsColor:"#a1a1a1",
+					shareAndEmbedTextColor:"#5a5a5a",
+					inputBackgroundColor:"#000000",
+					inputColor:"#FFFFFF",
+
+					
+					
+					adsButtonsPosition:"right",
+					skipToVideoText:"Puedes saltar el anuncio en: ",
+					skipToVideoButtonText:"Saltar publicidad",
+					adsTextNormalColor:"#999999",
+					adsTextSelectedColor:"#FFFFFF",
+					adsBorderNormalColor:"#666666",
+					adsBorderSelectedColor:"#FFFFFF"
+				});
+
+				// Respaldo automático: si m22 falla al cargar, intenta una vez con m37.
+				player1.addListener(FWDEVPlayer.ERROR, function(){
+					if (player1.__googlePhotosFallbackUsed) return;
+					player1.__googlePhotosFallbackUsed = true;
+					player1.setVideoSource(
+						"https://lh3.googleusercontent.com/oQDy9LBw7Obydz-8x-8iqjfY4WobAETDlYkQAPZxPVMQ6q1yOzhLmFlZDdaIkJORrcWCx73VlFMWBNY1Gz4i1DNFX6pUrRYo2Nv6nYfLBXTkv_lXrKEMDHCYi342wA00dM5QKOZSPw=m37",
+						"normal"
+					);
+				});
+			});
+		</script>
+	</head>
+
+	<body style="background-color:#000000; margin:0; padding:0;">
+		<!-- Contenedor de compatibilidad; el reproductor usa displayType FullScreen. -->
+		<div id="myDiv" aria-hidden="true"></div>
+	</body>
+
+	
+</html>
